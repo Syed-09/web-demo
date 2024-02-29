@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+<!--even if you change the index.jsp, use the path as /../index.jsp (starts from webapp folder)-->
+    </welcome-file-list>
+
+<!--Either you can use mapping servlet or use @WebServlet in HelloServlet.java-->
+<!--Mapping servlet starts here-->
+    <servlet>
+        <servlet-name>helloServlet</servlet-name>
+        <servlet-class>com.example.webdemo.HelloServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>helloServlet</servlet-name>
+        <url-pattern>/hello-servlet</url-pattern>
+<!--need to have a slash in the beginning-->
+    </servlet-mapping>
+<!--Mapping servlet ends here-->
+
+</web-app>
