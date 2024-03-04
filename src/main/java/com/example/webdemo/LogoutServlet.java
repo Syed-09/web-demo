@@ -19,20 +19,25 @@ public class LogoutServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.getSession().invalidate();
         //to delete the cookies (ctrl+shift+i --> Application --> Cookies)
         Cookie myCookie = null;
         Cookie[] cookies = request.getCookies();
         if(cookies != null){
             for (Cookie cookie: cookies){
-                cookie.setMaxAge(0);
+                if (cookie.getName().equals("user")){
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
+                    break;
+                }
             }
         }
         String baseUrl = request.getContextPath();
         //baseUrl = http://localhost:8080/web_demo_war_exploded/
 
         response.sendRedirect(baseUrl+"/logout.jsp");
-        Cookie loginCookie = new Cookie("user", "");
-        loginCookie.setMaxAge(0);
+//        Cookie loginCookie = new Cookie("user", "");
+//        loginCookie.setMaxAge(0);
     }
 
 }

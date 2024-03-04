@@ -52,7 +52,7 @@
     <fmt:formatNumber value="${amount}" type="currency"/>
 </h3>
 
-<form action="<%=request.getContextPath()%>/logout.jsp" method="post">
+<form action="<%=request.getContextPath()%>/logout" method="post">
     <input type="submit" value="Logout">
 </form>
 
