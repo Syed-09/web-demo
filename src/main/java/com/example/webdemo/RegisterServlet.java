@@ -46,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
 
             //response.sendRedirect(baseUrl+"/register.jsp");
 
-            //If you want to pass some data, use this instead of sendRedirect
+            //If you want to pass some data (username, password), use this instead of sendRedirect
             RequestDispatcher rd = request.getRequestDispatcher("/register.jsp");
             rd.forward(request,response);
         }
